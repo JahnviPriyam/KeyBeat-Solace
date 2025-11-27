@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>KeyBeat Solace | Calm Poem Typing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="background-petals"></div>
+
+<div class="app-container">
+  <header class="app-header">
+    <div class="logo">KeyBeat <span>Solace</span></div>
+    <nav class="nav">
+      <button class="nav-btn" data-target="home-section">Home</button>
+      <button class="nav-btn" data-target="typing-section">Typing</button>
+      <button class="nav-btn" data-target="results-section">Results</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HOME PAGE -->
+    <section id="home-section" class="view active">
+      <div class="hero-card">
+        <h1>KeyBeat Solace</h1>
+        <p class="subtitle">
+          A calm space to type poems, track your rhythm, and improve your flow.
+        </p>
+
+        <div class="selector-row">
+          <label for="poem-select">Choose your poem:</label>
+          <select id="poem-select">
+            <option value="road">The Road Not Taken</option>
+            <option value="dreams">Dreams</option>
+            <option value="hope">Hope</option>
+            <option value="invictus">Invictus</option>
+          </select>
+        </div>
+
+        <div class="cta-row">
+          <button id="start-typing-btn" class="primary-btn">Start Typing</button>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <h3>Word-by-word scoring</h3>
+            <p>Each word is checked on space — correct = mint, wrong = calm red.</p>
+          </div>
+
+          <div class="feature">
+            <h3>Live stats</h3>
+            <p>Tracks WPM, accuracy, mistakes & time — fully real.</p>
+          </div>
+
+          <div class="feature">
+            <h3>Fully Integrated</h3>
+            <p>Connected to a real Python backend & SQLite DB.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPING PAGE -->
+    <section id="typing-section" class="view">
+      <div class="typing-layout">
+
+        <div class="poem-header">
+          <h2 id="typing-poem-title">The Road Not Taken</h2>
+          <p class="poem-sub">Type each word and press space. Mistakes stay red.</p>
+        </div>
+
+        <div class="poem-box" id="poem-box"></div>
+
+        <textarea
+          id="typing-input"
+          placeholder="start typing here and press space after each word..."
+        ></textarea>
+
+        <!-- NEW BUTTONS: Restart + Submit -->
+        <div class="typing-actions">
+          <button id="restart-btn" class="ghost-btn">Restart</button>
+          <button id="submit-btn" class="primary-btn">Submit</button>
+        </div>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <p>WPM</p>
+            <h2 id="stat-wpm">0</h2>
+          </div>
+          <div class="stat-card">
+            <p>Accuracy</p>
+            <h2 id="stat-accuracy">0%</h2>
+          </div>
+          <div class="stat-card">
+            <p>Mistakes</p>
+            <h2 id="stat-mistakes">0</h2>
+          </div>
+          <div class="stat-card">
+            <p>Time</p>
+            <h2 id="stat-time">0s</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS PAGE -->
+    <section id="results-section" class="view">
+      <div class="results-card">
+        <h2>Your Results</h2>
+        <p class="subtitle">All your saved sessions from the backend.</p>
+
+        <table class="results-table">
+          <thead>
+          <tr>
+            <th>Poem</th>
+            <th>WPM</th>
+            <th>Accuracy</th>
+            <th>Mistakes</th>
+            <th>Duration</th>
+          </tr>
+          </thead>
+          <tbody id="results-body">
+            <!-- Fills dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

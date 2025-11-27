@@ -1,0 +1,401 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --bg-main: #e7fbf5;
+  --bg-card: #ffffff;
+  --accent: #2ea387;
+  --accent-soft: #9fe7c8;
+  --accent-pink: #ffb8d9;
+  --text-main: #294345;
+  --text-muted: #7d9a9f;
+  --wrong: #ff7b7b;
+  --correct: #35b18a;
+  --border-subtle: #d7f2ea;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top, #f8fffd 0, var(--bg-main) 55%, #d3f3ea 100%);
+  color: var(--text-main);
+}
+
+/* floating petals */
+.background-petals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255, 184, 217, 0.6) 2px, transparent 2px),
+    radial-gradient(circle, rgba(255, 236, 179, 0.5) 2px, transparent 2px);
+  background-size: 220px 180px, 260px 210px;
+  opacity: 0.3;
+  animation: floatPetals 40s linear infinite;
+}
+
+@keyframes floatPetals {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(40px);
+  }
+}
+
+/* main container */
+.app-container {
+  position: relative;
+  max-width: 1080px;
+  margin: 32px auto 40px;
+  padding: 20px 24px 28px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 24px 60px rgba(160, 216, 198, 0.55);
+}
+
+/* header */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  gap: 16px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+.logo span {
+  color: var(--accent-pink);
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  padding: 6px 14px;
+  background: #f7fffc;
+  color: var(--text-main);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.nav-btn:hover {
+  background: #e4fbf4;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(178, 227, 209, 0.6);
+}
+
+/* views */
+.view {
+  display: none;
+}
+.view.active {
+  display: block;
+}
+
+/* home section */
+.hero-card {
+  padding: 26px 20px 28px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #ffffff 0, #fdfcf9 35%, #f1fff8 100%);
+  border: 1px solid var(--border-subtle);
+}
+
+.hero-card h1 {
+  margin: 0 0 4px;
+  font-size: 2.2rem;
+  color: var(--accent);
+}
+
+.subtitle {
+  margin: 0 0 18px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.selector-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+#poem-select {
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  background: #f7fffc;
+}
+
+/* main buttons */
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.primary-btn,
+.ghost-btn {
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+  color: #ffffff;
+  box-shadow: 0 12px 24px rgba(56, 188, 140, 0.5);
+}
+.primary-btn:hover {
+  transform: translateY(-1px);
+}
+
+.ghost-btn {
+  border-color: var(--accent);
+  background: #ffffff;
+  color: var(--accent);
+}
+.ghost-btn:hover {
+  background: #e5fbf4;
+}
+
+/* features */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 14px;
+}
+
+.feature {
+  padding: 12px 12px 14px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 10px 28px rgba(183, 222, 205, 0.4);
+}
+
+.feature h3 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+}
+
+.feature p {
+  margin: 0;
+  font-size: 0.83rem;
+  color: var(--text-muted);
+}
+
+/* typing section */
+.typing-layout {
+  padding: 20px 18px 18px;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+}
+
+.poem-header h2 {
+  margin: 0 0 4px;
+  color: var(--accent);
+}
+
+.poem-sub {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.poem-box {
+  min-height: 120px;
+  max-height: 180px;
+  overflow-y: auto;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  background: #f7fffc;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.word {
+  margin-right: 8px;
+}
+
+.word.correct {
+  color: var(--correct);
+}
+
+.word.wrong {
+  color: var(--wrong);
+}
+
+.word.active {
+  position: relative;
+  color: var(--accent);
+}
+.word.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-pink));
+}
+
+#typing-input {
+  margin-top: 14px;
+  width: 100%;
+  min-height: 110px;
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  background: #fbfffe;
+  padding: 10px 12px;
+  font-size: 0.98rem;
+  resize: vertical;
+  outline: none;
+}
+
+#typing-input:focus {
+  border-color: var(--accent-soft);
+  box-shadow: 0 0 0 1px rgba(46, 163, 135, 0.15);
+}
+
+#typing-input.shake {
+  animation: shake 0.15s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(-1px); }
+  50% { transform: translateX(1px); }
+  100% { transform: translateX(0); }
+}
+
+/* restart & submit buttons */
+.typing-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+/* stats */
+.stats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.stat-card {
+  flex: 1 1 120px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 1px solid #ffe9b5;
+  box-shadow: 0 10px 26px rgba(255, 229, 178, 0.6);
+  text-align: center;
+}
+
+.stat-card p {
+  margin: 0 0 4px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.stat-card h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+/* results */
+.results-card {
+  padding: 22px 18px 18px;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+}
+
+.results-card h2 {
+  margin: 0 0 4px;
+}
+
+.results-card .subtitle {
+  margin-bottom: 16px;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.results-table th,
+.results-table td {
+  padding: 8px 6px;
+  border-bottom: 1px solid #f0f3f2;
+}
+
+.results-table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* responsive */
+@media (max-width: 720px) {
+  .app-container {
+    margin: 12px;
+    padding: 16px 14px 20px;
+  }
+
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-card h1 {
+    font-size: 1.8rem;
+  }
+
+  .poem-box {
+    max-height: 210px;
+  }
+}
+
+.pagination-controls {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.page-info {
+  min-width: 100px;
+  text-align: center;
+}
