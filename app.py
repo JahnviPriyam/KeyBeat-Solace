@@ -84,4 +84,5 @@ def get_sessions(
 @app.get("/")
 def home():
   return {"message": "KeyBeat Solace backend is running!"}
-handler = app
+
+
