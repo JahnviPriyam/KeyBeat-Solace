@@ -1,6 +1,6 @@
 from sqlmodel import SQLModel, Session, create_engine
 
-DATABASE_URL = "sqlite:///keybeat.db"
+DATABASE_URL = "sqlite:///./keybeat.db"
 engine = create_engine(DATABASE_URL, echo=False)
 
 def init_db():
